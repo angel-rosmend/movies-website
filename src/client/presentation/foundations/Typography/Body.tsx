@@ -1,9 +1,10 @@
 import cx from "classnames";
 import * as classes from "./Body.css";
-import { AriaRole, ComponentProps } from "react";
-import type { Filter } from "../../utils/typeOperations";
+import { AriaRole, ComponentProps, JSX } from "react";
 import { BaseTypography } from "./BaseTypography";
-import { FontWeightVariant } from "@/client/presentation/utils/fonts";
+import { Filter } from "@/client/utils/typeOperations";
+import { FontWeightVariant } from "./_fonts";
+
 
 export interface BodyProps {
   "data-test-id"?: string;

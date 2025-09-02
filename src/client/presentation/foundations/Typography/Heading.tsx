@@ -1,8 +1,7 @@
 import cx from "classnames";
 import * as classes from "./Heading.css";
-import { ComponentProps } from "react";
+import { ComponentProps, JSX } from "react";
 import { BaseTypography } from "./BaseTypography";
-import { FontWeightVariant } from "@/client/presentation/utils/fonts";
 
 export interface HeadingProps {
   "data-test-id"?: string;

@@ -1,7 +1,5 @@
 import { Meta } from "@storybook/react";
 import { Display } from "./Display";
-import { DesignLibraryVersion } from "@/constants/storybook";
-import { FontWeightVariant } from "../../utils/fonts";
 
 export default {
   title: "Foundations/Typography/Display",
@@ -11,11 +9,6 @@ export default {
     layout: "fullscreen",
     viewport: {
       defaultViewport: "reset",
-    },
-    docs: {
-      description: {
-        component: `The <em>Display Foundation</em> based on <strong>Ideal Rent - Design Library [${DesignLibraryVersion["v1.1.0"]}]</strong>.`,
-      },
     },
   },
 } as Meta;

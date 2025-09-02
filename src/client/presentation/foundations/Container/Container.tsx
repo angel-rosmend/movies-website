@@ -1,6 +1,6 @@
-import { createElement, forwardRef } from "react";
-import { Children } from "../../utils/children";
-import { tailwindClassnames } from "../../utils/tailwindClassnames";
+import { createElement, forwardRef, JSX } from "react";
+import cx from "classnames";
+import { Children } from "@/client/utils/children";
 
 export interface ContainerProps {
   /**
@@ -44,7 +44,7 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(
     return (
       <Wrapper
         ref={ref}
-        className={tailwindClassnames(
+        className={cx(
           "w-full flex flex-1 justify-center px-2",
           props.classNameWrapper,
         )}
@@ -52,7 +52,7 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(
         component={props.component}
       >
         <div
-          className={tailwindClassnames(
+          className={cx(
             "w-full h-fit",
             {
               "py-4 sm:py-6 lg:py-10 max-w-[1200px]":

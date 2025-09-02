@@ -1,7 +1,6 @@
 import { Meta } from "@storybook/react";
 import { Body } from "./Body";
-import { DesignLibraryVersion } from "@/constants/storybook";
-import { FontWeightVariant } from "../../utils/fonts";
+import { FontWeightVariant } from "./_fonts";
 
 export default {
   title: "Foundations/Typography/Body",
@@ -11,11 +10,6 @@ export default {
     layout: "fullscreen",
     viewport: {
       defaultViewport: "reset",
-    },
-    docs: {
-      description: {
-        component: `The <em>Body Foundation</em> based on <strong>Ideal Rent - Design Library [${DesignLibraryVersion["v1.1.0"]}]</strong>.`,
-      },
     },
   },
 } as Meta;
@@ -32,9 +26,6 @@ export const Regular = () => {
       <Body size="s" weight={FontWeightVariant.Regular}>
         Body S Regular
       </Body>
-      <Body size="xs" weight={FontWeightVariant.Regular}>
-        Body XS Regular
-      </Body>
     </div>
   );
 };
@@ -50,9 +41,6 @@ export const Bold = () => {
       </Body>
       <Body size="s" weight={FontWeightVariant.Bold}>
         Body S Bold
-      </Body>
-      <Body size="xs" weight={FontWeightVariant.Bold}>
-        Body XS Bold
       </Body>
     </div>
   );

@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import { DesignLibraryVersion } from "@/constants/storybook";
+
 import { Label } from "./Label";
 
 export default {
@@ -10,11 +10,6 @@ export default {
     layout: "fullscreen",
     viewport: {
       defaultViewport: "reset",
-    },
-    docs: {
-      description: {
-        component: `The <em>Label Foundation</em> based on <strong>Ideal Rent - Design Library [${DesignLibraryVersion["v1.1.0"]}]</strong>.`,
-      },
     },
   },
 } as Meta;

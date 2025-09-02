@@ -1,8 +1,8 @@
 import cx from "classnames";
 import * as classes from "./TextLink.css";
-import { AriaRole, ComponentProps } from "react";
-import type { Filter } from "../../utils/typeOperations";
+import { AriaRole, ComponentProps, JSX } from "react";
 import { BaseTypography } from "./BaseTypography";
+import { Filter } from "@/client/utils/typeOperations";
 
 export interface TextLinkProps {
   "data-test-id"?: string;

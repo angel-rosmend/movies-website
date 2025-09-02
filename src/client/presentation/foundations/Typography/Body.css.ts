@@ -1,6 +1,6 @@
-import { FontWeightVariant } from "@/client/presentation/utils/fonts";
+import { FontWeightVariant } from "./_fonts";
 
-export const base = "font-nunito-sans";
+export const base = "font-manrope";
 
 const boldVariant = {
   xl: "text-body-xl-bold-mobile md:text-body-xl-bold-desktop",

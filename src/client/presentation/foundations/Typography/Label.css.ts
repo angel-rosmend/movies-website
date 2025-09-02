@@ -1,4 +1,4 @@
-export const base = "nunito-sans";
+export const base = "font-manrope";
 
 export const sizes = {
   m: "text-label-m-mobile md:text-label-m-desktop",

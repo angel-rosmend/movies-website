@@ -1,4 +1,4 @@
-export const base = "font-lato";
+export const base = "font-manrope";
 
 export const sizes = {
   m: "text-link-m-mobile md:text-link-m-desktop",
