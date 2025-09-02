@@ -1,0 +1,59 @@
+import { Meta } from "@storybook/react";
+import { Body } from "./Body";
+import { DesignLibraryVersion } from "@/constants/storybook";
+import { FontWeightVariant } from "../../utils/fonts";
+
+export default {
+  title: "Foundations/Typography/Body",
+  component: Body,
+  tags: ["v1.2.0"],
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "reset",
+    },
+    docs: {
+      description: {
+        component: `The <em>Body Foundation</em> based on <strong>Ideal Rent - Design Library [${DesignLibraryVersion["v1.1.0"]}]</strong>.`,
+      },
+    },
+  },
+} as Meta;
+
+export const Regular = () => {
+  return (
+    <div className="flex flex-col gap-3 p-5">
+      <Body size="l" weight={FontWeightVariant.Regular}>
+        Body L Regular
+      </Body>
+      <Body size="m" weight={FontWeightVariant.Regular}>
+        Body M Regular
+      </Body>
+      <Body size="s" weight={FontWeightVariant.Regular}>
+        Body S Regular
+      </Body>
+      <Body size="xs" weight={FontWeightVariant.Regular}>
+        Body XS Regular
+      </Body>
+    </div>
+  );
+};
+
+export const Bold = () => {
+  return (
+    <div className="flex flex-col gap-3 p-5">
+      <Body size="l" weight={FontWeightVariant.Bold}>
+        Body L Bold
+      </Body>
+      <Body size="m" weight={FontWeightVariant.Bold}>
+        Body M Bold
+      </Body>
+      <Body size="s" weight={FontWeightVariant.Bold}>
+        Body S Bold
+      </Body>
+      <Body size="xs" weight={FontWeightVariant.Bold}>
+        Body XS Bold
+      </Body>
+    </div>
+  );
+};
