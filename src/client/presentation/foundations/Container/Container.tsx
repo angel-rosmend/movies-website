@@ -55,7 +55,7 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(
           className={cx(
             "w-full h-fit",
             {
-              "py-4 sm:py-6 lg:py-10 max-w-[1200px]":
+              "py-4 md:py-6 max-w-[1594px]":
                 !props.variant || props.variant === "default",
               "py-4 sm:py-6 lg:py-10 max-w-[1920px]": props.variant === "large",
               "px-0": props.variant === "full",
