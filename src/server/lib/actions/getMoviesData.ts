@@ -2,6 +2,7 @@
 import { TMDB_BASE_URL, TMDB_KEY, TMDB_TOKEN } from "@/server/constants/urls";
 import { MovieCategory, TMDBResponse } from "../types/movie";
 import z from "zod";
+import { MovieSchema, MovieType } from "@/lib/models";
 
 async function fetchFromTMDB(endpoint: string): Promise<TMDBResponse> {
   const baseUrl = z.string({ error: "Missing base url" }).parse(TMDB_BASE_URL);
@@ -84,8 +85,10 @@ export async function searchMovies(
  * @param movieId - TMDB movie ID
  * @returns Promise<Movie> - Detailed movie information
  */
-export async function getMovieDetails(movieId: number) {
-  return fetchFromTMDB(`/movie/${movieId}`);
+export async function getMovieDetails(movieId: number):Promise<MovieType> {
+  const data = await fetchFromTMDB(`/movie/${movieId}`)
+  const parsedData = MovieSchema.parse(data)
+  return parsedData
 }
 
 /**

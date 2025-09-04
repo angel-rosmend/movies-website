@@ -3,22 +3,17 @@ import { Box } from "../../foundations/Box/Box";
 import Image from "next/image";
 import cx from "classnames";
 import { Display } from "../../foundations/Typography/Display";
-import { Body, TextButton } from "../../foundations/Typography";
+import { Body } from "../../foundations/Typography";
 import { Button } from "@/components/ui/button";
-import { Play, Plus, ThumbsUp, Volume2 } from "lucide-react";
+import { Plus, ThumbsUp, Volume2 } from "lucide-react";
+import { HeroType } from "@/lib/models";
+import { PlayBtn } from "../Buttons/PlayBtn";
 
-export interface HeroProps {
-  title: string;
-  description: string;
-  ctaUrl: string;
-  ctaLabel: string;
-  image: { url: string; alt?: string; title?: string };
-}
-export function Hero(props: HeroProps) {
+export function Hero(props: HeroType) {
   return (
     <Container
       component="section"
-      className="bg-black-08 relative h-fit px-10 py-6 md:py-10"
+      className="bg-black-08 relative h-fit"
       variant="default"
     >
       <figure className="w-full !z-10 aspect-video relative rounded-[12px] overflow-hidden">
@@ -30,7 +25,6 @@ export function Hero(props: HeroProps) {
             "object-center border border-black-08 -z-0 object-fill absolute"
           )}
           blurDataURL={props.image.url}
-          loader={({ src }) => src}
           priority
         />
         <span className="hero-banner-gradient absolute inset-0" />
@@ -42,37 +36,32 @@ export function Hero(props: HeroProps) {
             <Display size="s" component="h1" className="text-white text-center">
               {props.title}
             </Display>
-            <Body component="p" size="m" className="text-grey-60 hidden sm:block line-clamp-4 text-center">
-              {props.description}
+            <Body
+              component="p"
+              size="m"
+              className="text-grey-65 hidden sm:block !line-clamp-3 text-center"
+            >
+              {props.overview}
             </Body>
             <Box className="gap-2">
+              <PlayBtn id={props.id.toString()} />
               <Button
                 variant="secondary"
-                className="bg-red-45 cursor-pointer"
-                size="sm"
-              >
-                <Play fill="#ffffff" size={24} color="#ffffff" />{" "}
-                <TextButton className="text-white" size="m">
-                  {props.ctaLabel}
-                </TextButton>
-              </Button>
-              <Button
-                variant="secondary"
-                className="bg-black-06 border-black-15 cursor-pointer"
+                className="bg-black-06 border-black-30 cursor-pointer"
                 size="sm"
               >
                 <Plus fill="#ffffff" size={24} color="#ffffff" />
               </Button>
               <Button
                 variant="secondary"
-                className="bg-black-06 border-black-15 cursor-pointer"
+                className="bg-black-06 border-black-30 cursor-pointer"
                 size="sm"
               >
                 <ThumbsUp size={24} color="#ffffff" />
               </Button>
               <Button
                 variant="secondary"
-                className="bg-black-06 border-black-15 cursor-pointer"
+                className="bg-black-06 border-black-30 cursor-pointer"
                 size="sm"
               >
                 <Volume2 size={24} color="#ffffff" />

@@ -25,7 +25,7 @@ export function Navigation() {
         component="nav"
       >
         <Link href={"/"}>
-          <Box className="w-[116px] md:w-[165px]">
+          <Box className="w-[116px] cursor-pointer md:w-[165px]">
             <LogoDesktop />
           </Box>
         </Link>
