@@ -3,6 +3,7 @@ import "@/styles/globals.css"
 import { Navigation } from "@/client/presentation/components/Navigation/Navigation";
 import cx from "classnames"
 import { manrope } from "@/client/presentation/foundations/Typography/_fonts";
+import FooterSSR from "@/server/components/Footer/FooterSSR";
 
 export const metadata: Metadata = {
   title: "Movies Website",
@@ -20,6 +21,7 @@ export default function RootLayout({
       >
         <Navigation/>
         {children}
+        <FooterSSR/>
       </body>
     </html>
   );
