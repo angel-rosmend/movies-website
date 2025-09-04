@@ -1,11 +1,10 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/nextjs-vite";
 import { Heading } from "./Heading";
 
 
 export default {
   title: "Foundations/Typography/Heading",
   component: Heading,
-  tags: ["v1.2.0"],
   parameters: {
     layout: "fullscreen",
     viewport: {

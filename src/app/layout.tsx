@@ -4,8 +4,6 @@ import { Navigation } from "@/client/presentation/components/Navigation/Navigati
 import cx from "classnames"
 import { manrope } from "@/client/presentation/foundations/Typography/_fonts";
 
-
-
 export const metadata: Metadata = {
   title: "Movies Website",
 };

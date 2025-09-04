@@ -27,10 +27,10 @@ export interface DisplayProps {
   className?: string;
   /**
    * Define the font size of the Display.
-   * @type "m" | "l" | "xl"
+   * @type "s" "m" | "l" | "xl"
    * @required
    */
-  size: "m" | "l" | "xl";
+  size: "s" | "m" | "l" | "xl";
   /**
    * Define the component type.
    * @type "span" | "p" | "label" | "h4" | "h5" | "h6"

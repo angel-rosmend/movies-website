@@ -1,11 +1,11 @@
-import { Meta } from "@storybook/react";
+
+import { Meta } from "@storybook/nextjs-vite";
 import { Body } from "./Body";
 import { FontWeightVariant } from "./_fonts";
 
 export default {
   title: "Foundations/Typography/Body",
   component: Body,
-  tags: ["v1.2.0"],
   parameters: {
     layout: "fullscreen",
     viewport: {

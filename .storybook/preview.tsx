@@ -1,6 +1,6 @@
-import type { Preview } from "@storybook/react";
 import "../src/styles/globals.css";
 import cx from "classnames";
+import type { Preview } from "@storybook/react";
 import { lato, nunito, nunitoSans } from "../src/client/presentation/foundations/Typography/_fonts";
 
 export const preview: Preview = {
