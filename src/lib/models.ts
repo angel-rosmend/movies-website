@@ -7,7 +7,7 @@ export const GenreSchema = z.object({
 
 export const ImageSchema = z.object({
   url: z.string(),
-  alt: z.string().optional,
+  alt: z.string().optional(),
   title: z.string().optional(),
 });
 
@@ -48,7 +48,7 @@ export const MovieSchema = z.object({
   production_countries: z.array(ProductionCountrySchema),
   release_date: z.string(),
   revenue: z.number(),
-  runtime: z.number().nullable(),
+  runtime: z.number(),
   spoken_languages: z.array(SpokenLanguageSchema),
   status: z.string(),
   tagline: z.string(),
@@ -58,6 +58,14 @@ export const MovieSchema = z.object({
   vote_count: z.number(),
 });
 
+export const MovieCardSchema = MovieSchema.pick({
+  id: true,
+  title: true,
+  runtime: true,
+  vote_average: true,
+  vote_count: true,
+}).extend({ image: ImageSchema });
+
 export const HeroSchema = MovieSchema.pick({
   id: true,
   title: true,
@@ -66,11 +74,17 @@ export const HeroSchema = MovieSchema.pick({
 
 export type HeroType = z.infer<typeof HeroSchema>;
 export type MovieType = z.infer<typeof MovieSchema>;
+export type MovieCardType = z.infer<typeof MovieCardSchema>;
+
 
 export interface TMDBResponse {
-  page: number
-  results: MovieType[]
-  total_pages: number
-  total_results: number
+  page: number;
+  results: MovieType[];
+  total_pages: number;
+  total_results: number;
 }
-export type MovieCategory = "popular" | "top_rated" | "upcoming" | "now_playing"
+export type MovieCategory =
+  | "popular"
+  | "top_rated"
+  | "upcoming"
+  | "now_playing";

@@ -8,7 +8,7 @@ interface HeroSSRProps {
 
 export async function HeroSSR(props: HeroSSRProps) {
   const response = await getMovieDetails(props.movieId);
-
+  console.log(response)
   const data = {
     title: response.title,
     overview: response.overview,

@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react/";
 import { Divider } from "./Divider";
-import { Box } from "@fastlooptech/layout-components";
+import { Box } from "../../foundations/Box/Box";
 
 export default {
   title: "Components/Divider",

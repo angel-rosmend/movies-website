@@ -1,7 +1,5 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/nextjs-vite";
 import { Accordion } from "./Accordion";
-import { DesignLibraryVersion } from "@/constants/storybook";
-
 export default {
   title: "Components/Accordion",
   component: Accordion,
@@ -10,11 +8,6 @@ export default {
     viewport: {
       defaultViewport: "reset"
     },
-    docs: {
-      description: {
-        component: `The <em>Accordion Component</em> based on <strong>Ideal Rent- Design Library [${DesignLibraryVersion["v1.1.0"]}]</strong>.`
-      }
-    }
   }
 } as Meta;
 
