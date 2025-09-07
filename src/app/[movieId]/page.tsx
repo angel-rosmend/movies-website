@@ -1,4 +1,5 @@
 import { Block } from "@/client/presentation/components/Block/Block";
+import { Cast } from "@/client/presentation/components/Cast/Cast";
 import { InfoPanel } from "@/client/presentation/components/InfoPanel/InfoPanel";
 import { Box } from "@/client/presentation/foundations/Box/Box";
 import { Container } from "@/client/presentation/foundations/Container/Container";
@@ -35,6 +36,7 @@ export default async function MovieDetails({ params }: PageProps) {
                 {data.overview}
               </Body>
             </Block>
+            <Cast items={data.credits.cast}/>
           </Box>
           <Box className="w-[30%]">
             <InfoPanel

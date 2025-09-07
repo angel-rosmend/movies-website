@@ -10,6 +10,7 @@ import { HeroType } from "@/lib/models";
 import { PlayBtn } from "../Buttons/PlayBtn";
 
 export function Hero(props: HeroType) {
+  console.log(props.image.url)
   return (
     <Container
       component="section"

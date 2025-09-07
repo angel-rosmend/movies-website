@@ -1,12 +1,13 @@
 import { Calendar, Globe, Star, Film } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Block } from "../Block/Block";
 import { Body } from "../../foundations/Typography";
 import { Box } from "../../foundations/Box/Box";
 import { Ratings } from "./Ratings";
 import { CrewMemberType } from "@/lib/models";
-import { TMDB_IMAGE_BASE_URL } from "@/server/constants/urls";
+import Image from "next/image";
+import { getImageUrl } from "@/server/utils/getImageUrl";
 
 interface InfoPanelProps {
   release_date: string;
@@ -94,14 +95,15 @@ export function InfoPanel(props: InfoPanelProps) {
         <Body size="s" className="text-grey-60">
           Director
         </Body>
-        <Box className="flex items-center gap-3 bg-black-08 w-fit p-3 border border-black-15 rounded-[6px]">
-          <Avatar className="w-10 h-10 !rounded-[6px]">
+        <Box className="gap-3 bg-black-08 w-fit p-3 border border-black-15 rounded-[6px]">
+          <Avatar className="w-10 h-10 rounded-[6px]">
             {!!props.director ? (
-              <AvatarImage
+              <Image
+                 alt={props.director.name}
+                 fill
                 src={
-                  props.director.profile_path
-                    ? `${TMDB_IMAGE_BASE_URL}/${props.director.profile_path}`
-                    : undefined
+                   getImageUrl(`${props.director.profile_path}`, "w185")
+                    
                 }
               />
             ) : (
