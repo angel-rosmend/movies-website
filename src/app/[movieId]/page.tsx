@@ -2,6 +2,7 @@ import { Block } from "@/client/presentation/components/Block/Block";
 import { MoviesCarousel } from "@/client/presentation/components/Carousel/Carousel";
 import { Cast } from "@/client/presentation/components/Cast/Cast";
 import { InfoPanel } from "@/client/presentation/components/InfoPanel/InfoPanel";
+import { Reviews } from "@/client/presentation/components/Reviews/Reviews";
 import { Box } from "@/client/presentation/foundations/Box/Box";
 import { Container } from "@/client/presentation/foundations/Container/Container";
 import { Body } from "@/client/presentation/foundations/Typography";
@@ -40,6 +41,7 @@ export default async function MovieDetails({ params }: PageProps) {
               </Body>
             </Block>
             <Cast items={data.credits.cast}/>
+            <Reviews items={data.reviews}/>
           </Box>
           <Box className="w-[30%]">
             <InfoPanel

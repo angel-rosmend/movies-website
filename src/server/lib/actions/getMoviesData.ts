@@ -109,12 +109,12 @@ export async function fetchMovieCredits(movieId: number): Promise<CreditsType> {
   return CreditsSchema.parse(data);
 }
 
-export async function fetchMovieReviews(movieId: number): Promise<ReviewType> {
+export async function fetchMovieReviews(movieId: number): Promise<ReviewType[]> {
   const response = await fetch(
     `${TMDB_BASE_URL}/movie/${movieId}/reviews?api_key=${TMDB_KEY}&page=1`
   );
   const data = await response.json();
-  return data.results.map((item) => ReviewSchema.parse(item));
+  return data.results.map((item: ReviewType) => ReviewSchema.parse(item));
 }
 
 export async function getMovieDetails(movieId: number): Promise<MovieType> {

@@ -58,7 +58,7 @@ export function MoviesCarousel(props: MoviesCarouselProps) {
         }}
         className="w-full"
       >
-        <CarouselContent className="">
+        <CarouselContent>
           {props.items.map((item) => (
             <CarouselItem
               key={item.id}
