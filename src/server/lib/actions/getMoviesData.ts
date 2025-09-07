@@ -2,12 +2,22 @@
 import { TMDB_BASE_URL, TMDB_KEY, TMDB_TOKEN } from "@/server/constants/urls";
 import { MovieCategory, TMDBResponse } from "../types/movie";
 import z from "zod";
-import { MovieSchema, MovieType } from "@/lib/models";
+import {
+  CreditsSchema,
+  CreditsType,
+  MovieCardSchema,
+  MovieCardType,
+  MovieSchema,
+  MovieType,
+  ReviewSchema,
+  ReviewType,
+} from "@/lib/models";
+import { getImageUrl } from "@/server/utils/getImageUrl";
 
 async function fetchFromTMDB(endpoint: string): Promise<TMDBResponse> {
   const baseUrl = z.string({ error: "Missing base url" }).parse(TMDB_BASE_URL);
-  const token = z.string({error: "Missing tmdb token"}).parse(TMDB_TOKEN)
-  const key = z.string({error: "Missing tmdb key"}).parse(TMDB_KEY)
+  const token = z.string({ error: "Missing tmdb token" }).parse(TMDB_TOKEN);
+  const key = z.string({ error: "Missing tmdb key" }).parse(TMDB_KEY);
   const url = `${baseUrl}${endpoint}api_key=${key}`;
 
   try {
@@ -58,8 +68,19 @@ async function fetchFromTMDB(endpoint: string): Promise<TMDBResponse> {
 export async function getMoviesByCategory(
   category: MovieCategory,
   page = 1
-): Promise<TMDBResponse> {
-  return fetchFromTMDB(`/movie/${category}?page=${page}`);
+): Promise<MovieCardType[]> {
+  const response = await fetchFromTMDB(`/movie/${category}?page=${page}`);
+  const parsedData = response.results.map((item) =>
+    MovieCardSchema.parse({
+      ...item,
+      image: {
+        url: getImageUrl(item.poster_path),
+        alt: item.original_title,
+        title: item.title,
+      },
+    })
+  );
+  return parsedData;
 }
 
 /**
@@ -80,27 +101,34 @@ export async function searchMovies(
   return fetchFromTMDB(`/search/movie?query=${encodedQuery}&page=${page}`);
 }
 
-/**
- * Get detailed information for a specific movie
- * @param movieId - TMDB movie ID
- * @returns Promise<Movie> - Detailed movie information
- */
-export async function getMovieDetails(movieId: number):Promise<MovieType> {
-  const data = await fetchFromTMDB(`/movie/${movieId}`)
-  const parsedData = MovieSchema.parse(data)
-  return parsedData
+export async function fetchMovieCredits(movieId: number): Promise<CreditsType> {
+  const response = await fetch(
+    `${TMDB_BASE_URL}/movie/${movieId}/credits?api_key=${TMDB_KEY}`
+  );
+  const data = await response.json();
+  return CreditsSchema.parse(data);
 }
 
-/**
- * Generate full TMDB image URL from image path
- * @param path - Image path from TMDB API (can be null)
- * @param size - Image size (w92, w154, w185, w342, w500, w780, original)
- * @returns string - Full image URL or placeholder
- */
+export async function fetchMovieReviews(movieId: number): Promise<ReviewType> {
+  const response = await fetch(
+    `${TMDB_BASE_URL}/movie/${movieId}/reviews?api_key=${TMDB_KEY}&page=1`
+  );
+  const data = await response.json();
+  return data.results.map((item) => ReviewSchema.parse(item));
+}
 
-/**
- * Generate backdrop image URL (typically used for hero sections)
- * @param path - Backdrop path from TMDB API
- * @param size - Backdrop size (w300, w780, w1280, original)
- * @returns string - Full backdrop URL or placeholder
- */
+export async function getMovieDetails(movieId: number): Promise<MovieType> {
+  const data = await fetchFromTMDB(`/movie/${movieId}`);
+  const parsedData = MovieSchema.parse(data);
+  return parsedData;
+}
+export async function getCompleteMovieDetails(movieId: number) {
+  const [details, credits, reviews] = await Promise.all([
+    getMovieDetails(movieId),
+    fetchMovieCredits(movieId),
+    fetchMovieReviews(movieId),
+  ]);
+  const director = credits.crew.find((member) => member.job === "Director");
+  const cast = credits.cast.slice(0, 8);
+  return { ...details, credits: { director, cast }, reviews };
+}

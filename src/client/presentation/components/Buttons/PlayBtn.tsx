@@ -3,12 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 import { TextButton } from "../../foundations/Typography";
 import { useRouter } from "next/navigation";
+import { ROUTES_PATH } from "@/lib/routes";
 
-export function PlayBtn({ id }: { id: string }) {
+export function PlayBtn({ id }: { id: number }) {
   const router = useRouter();
   return (
     <Button
-      onClick={() => router.push(`/${id}`)}
+      onClick={() => router.push(ROUTES_PATH.details(id))}
       variant="secondary"
       className="bg-red-45 cursor-pointer"
       size="sm"

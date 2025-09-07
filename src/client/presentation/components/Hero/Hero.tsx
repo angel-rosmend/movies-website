@@ -44,7 +44,7 @@ export function Hero(props: HeroType) {
               {props.overview}
             </Body>
             <Box className="gap-2">
-              <PlayBtn id={props.id.toString()} />
+              <PlayBtn id={props.id} />
               <Button
                 variant="secondary"
                 className="bg-black-06 border-black-30 cursor-pointer"

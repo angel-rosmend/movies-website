@@ -16,3 +16,15 @@ export function formatRating(rating: number): { filledStars: number; displayRati
 
   return { filledStars, displayRating }
 }
+
+export function formatCount(count: number | string): string {
+  const num = typeof count === "string" ? Number.parseFloat(count) : count
+
+  if (num >= 1000000) {
+    return Math.floor(num / 1000000) + "M"
+  }
+  if (num >= 1000) {
+    return Math.floor(num / 1000) + "K"
+  }
+  return Math.floor(num).toString()
+}
