@@ -11,10 +11,12 @@ import { MovieCardType } from "@/lib/models";
 import { MovieCard } from "../Card/Card";
 import { Box } from "../../foundations/Box/Box";
 import { ControlsButtons } from "./Controls";
+import cx from "classnames";
 
 export interface MoviesCarouselProps {
   category: string;
   items: MovieCardType[];
+  className?: string;
 }
 
 export function MoviesCarousel(props: MoviesCarouselProps) {
@@ -36,7 +38,7 @@ export function MoviesCarousel(props: MoviesCarouselProps) {
   }, [api]);
 
   return (
-    <div className="w-full">
+    <div className={cx("w-full", props.className)}>
       <Box vAlignContent="center" className="flex justify-between mb-8">
         <Heading className="text-white" size="xl">
           {props.category}
