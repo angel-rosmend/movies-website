@@ -8,6 +8,7 @@ import { Ratings } from "./Ratings";
 import { CrewMemberType } from "@/lib/models";
 import Image from "next/image";
 import { getImageUrl } from "@/server/utils/getImageUrl";
+import cx from "classnames";
 
 interface InfoPanelProps {
   release_date: string;
@@ -22,13 +23,14 @@ interface InfoPanelProps {
   }>;
   vote_average: number;
   director: CrewMemberType;
+  className?: string;
 }
 
 export function InfoPanel(props: InfoPanelProps) {
   const releaseYear = new Date(props.release_date).getFullYear();
-  console.log(props.director)
+
   return (
-    <Block className="w-full gap-5">
+    <Block className={cx(props.className, "w-full gap-5")}>
       <Box column className="gap-2">
         <div className="flex items-center gap-2 ">
           <Calendar className="w-4 h-4 stroke-grey-60" />

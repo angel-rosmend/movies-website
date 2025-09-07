@@ -69,7 +69,7 @@ function FooterDesktop(props: FooterProps) {
         <Box grow column className="w-full" hAlignContent="left">
           <Box grow className="w-full pb-2" hAlignContent="right">
             <Link href={props.social[2].url}>
-              <Box vAlignContent="center" className="gap-3 w-full" >
+              <Box vAlignContent="center" className="gap-3 w-full">
                 <Box width={24} height={24} type="submit" role="button">
                   <Icons.Email
                     className="stroke-white fill-none"
@@ -86,7 +86,11 @@ function FooterDesktop(props: FooterProps) {
           </Box>
 
           <Divider dark />
-          <Box grow vAlignContent="center" className="w-full justify-between pt-2">
+          <Box
+            grow
+            vAlignContent="center"
+            className="w-full justify-between pt-2"
+          >
             <Body color="text-grey-60" size="xs">
               {props.copyright}
             </Body>
@@ -111,29 +115,6 @@ function FooterDesktop(props: FooterProps) {
 function FooterMobile(props: FooterProps) {
   return (
     <Box column className={cx(props.className, "bg-black-06 p-2 gap-4")}>
-      <Box>
-        <Box className="gap-3">
-          <Link href={props.social[0].url}>
-            <Box width={24} height={24}>
-              <Icons.Email
-                className="fill-none stroke-white"
-                id="linkedIn"
-                size="m"
-              />
-            </Box>
-          </Link>
-          <Link href={props.social[1].url}>
-            <Box width={24} height={24}>
-              <Icons.Facebook
-                className="fill-none stroke-white"
-                id="linkedIn"
-                size="m"
-              />
-            </Box>
-          </Link>
-        </Box>
-        <Box />
-      </Box>
       <Accordion
         theme="dark"
         variant="small"

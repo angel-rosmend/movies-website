@@ -1,7 +1,8 @@
 export const ROUTES_PATH = {
     home: "/",
     details: (id: number) => `/${id}`,
-    watchList: "watch-list",
-    support: "support",
+    watchList: "/watch-list",
+    support: "/support",
+    subscriptions: "/subscriptions"
     
 }
