@@ -5,12 +5,14 @@ import cx from "classnames";
 import { Display } from "../../foundations/Typography/Display";
 import { Body } from "../../foundations/Typography";
 import { Button } from "@/components/ui/button";
-import { Plus, ThumbsUp, Volume2 } from "lucide-react";
-import { HeroType } from "@/lib/models";
+import { ThumbsUp, Volume2 } from "lucide-react";
+import { HeroSchema, HeroType } from "@/lib/models";
 import { PlayBtn } from "../Buttons/PlayBtn";
+import WatchListButton from "../Buttons/WatchListButton";
+import { getImageUrl } from "@/server/utils/getImageUrl";
 
 export function Hero(props: HeroType) {
-  console.log(props.image.url)
+  const movieData = HeroSchema.parse(props)
   return (
     <Container
       component="section"
@@ -48,14 +50,7 @@ export function Hero(props: HeroType) {
               <PlayBtn id={props.id} />
               <Button
                 variant="secondary"
-                className="bg-black-06 border-black-30 cursor-pointer"
-                size="sm"
-              >
-                <Plus fill="#ffffff" size={24} color="#ffffff" />
-              </Button>
-              <Button
-                variant="secondary"
-                className="bg-black-06 border-black-30 cursor-pointer"
+                className={"bg-black-06 border-black-30 cursor-pointer"}
                 size="sm"
               >
                 <ThumbsUp size={24} color="#ffffff" />
@@ -67,6 +62,16 @@ export function Hero(props: HeroType) {
               >
                 <Volume2 size={24} color="#ffffff" />
               </Button>
+              <WatchListButton
+                movie={{
+                  ...movieData,
+                  image: {
+                    url: getImageUrl(movieData.poster_path, "w500"),
+                    alt: movieData.title,
+                    title: movieData.title,
+                  },
+                }}
+              />
             </Box>
           </Box>
         </Box>

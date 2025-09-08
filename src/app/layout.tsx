@@ -4,6 +4,7 @@ import { Navigation } from "@/client/presentation/components/Navigation/Navigati
 import cx from "classnames"
 import { manrope } from "@/client/presentation/foundations/Typography/_fonts";
 import FooterSSR from "@/server/components/Footer/FooterSSR";
+import { WatchListProvider } from "@/context/watch-list-context";
 
 export const metadata: Metadata = {
   title: "Movies Website",
@@ -17,10 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cx(manrope.variable, "!bg-black-08")}
+        className={cx(manrope.variable, "!bg-black-08 min-h-screen")}
       >
         <Navigation/>
+        <WatchListProvider>
         {children}
+        </WatchListProvider>
         <FooterSSR/>
       </body>
     </html>

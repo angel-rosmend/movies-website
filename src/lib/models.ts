@@ -71,6 +71,10 @@ export const HeroSchema = MovieSchema.pick({
   id: true,
   title: true,
   overview: true,
+  popularity: true,
+  vote_average: true,
+  vote_count: true,
+  poster_path: true,
 }).extend({ image: ImageSchema });
 
 export const CastMemberSchema = z.object({

@@ -8,16 +8,20 @@ interface HeroSSRProps {
 
 export async function HeroSSR(props: HeroSSRProps) {
   const response = await getMovieDetails(props.movieId);
-  console.log(response)
   const data = {
     title: response.title,
     overview: response.overview,
     id: response.id,
+    popularity: response.popularity,
+    vote_average: response.vote_average,
+    vote_count: response.vote_count,
+    poster_path: response.poster_path,
     image: {
       url: getImageUrl(response.backdrop_path, "original"),
       alt: response.title,
       title: response.title,
     },
+
   };
   return <Hero {...data} />;
 }

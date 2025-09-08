@@ -1,6 +1,6 @@
-import { formatCount, formatRating } from "@/client/utils/card";
+import { formatCount } from "@/client/utils/card";
 import { MovieCardType } from "@/lib/models";
-import { Eye, Star } from "lucide-react";
+import { Eye } from "lucide-react";
 import { Box } from "../../foundations/Box/Box";
 import Image from "next/image";
 import cx from "classnames";
