@@ -1,5 +1,5 @@
 import { formatCount } from "@/client/utils/card";
-import { MovieCardType } from "@/lib/models";
+import { imageSizes, MovieCardType } from "@/lib/models";
 import { Eye } from "lucide-react";
 import { Box } from "../../foundations/Box/Box";
 import Image from "next/image";
@@ -24,13 +24,13 @@ export function MovieCard(props: MovieCardType) {
             src={props.image.url}
             alt={props.image.alt || "alt"}
             fill
+            sizes={imageSizes}
             className={cx("object-center object-fill absolute")}
             blurDataURL={props.image.url}
           />
         </figure>
       </Link>
       <Box className="p-4 justify-between">
-        {/* Runtime */}
         <Box
           vAlignContent="center"
           className="rounded-[51px] gap-1 p-1 border border-black-15 bg-black-08 "

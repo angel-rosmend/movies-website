@@ -5,7 +5,7 @@ import { Block } from "../Block/Block";
 import { Body } from "../../foundations/Typography";
 import { Box } from "../../foundations/Box/Box";
 import { Ratings } from "./Ratings";
-import { CrewMemberType } from "@/lib/models";
+import { CrewMemberType, imageSizes } from "@/lib/models";
 import Image from "next/image";
 import { getImageUrl } from "@/server/utils/getImageUrl";
 import cx from "classnames";
@@ -102,6 +102,7 @@ export function InfoPanel(props: InfoPanelProps) {
             {!!props.director ? (
               <Image
                  alt={props.director.name}
+                 sizes={imageSizes}
                  fill
                 src={
                    getImageUrl(`${props.director.profile_path}`, "w185")

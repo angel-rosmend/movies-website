@@ -90,7 +90,7 @@ export function WatchListProvider({ children }: ItemsProviderProps) {
 export function useWatchList() {
   const context = useContext(WatchListItemsContext);
   if (context === undefined) {
-    throw new Error("useItems must be used within an ItemsProvider");
+    throw new Error("useWatchList must be used within an ItemsProvider");
   }
   return context;
 }

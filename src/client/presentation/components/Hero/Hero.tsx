@@ -6,7 +6,7 @@ import { Display } from "../../foundations/Typography/Display";
 import { Body } from "../../foundations/Typography";
 import { Button } from "@/components/ui/button";
 import { ThumbsUp, Volume2 } from "lucide-react";
-import { HeroSchema, HeroType } from "@/lib/models";
+import { HeroSchema, HeroType, imageSizes } from "@/lib/models";
 import { PlayBtn } from "../Buttons/PlayBtn";
 import WatchListButton from "../Buttons/WatchListButton";
 import { getImageUrl } from "@/server/utils/getImageUrl";
@@ -24,6 +24,7 @@ export function Hero(props: HeroType) {
           src={props.image.url}
           alt="bg-image-hero"
           fill
+           sizes={imageSizes}
           className={cx(
             "object-center border border-black-08 -z-0 object-fill absolute"
           )}

@@ -24,8 +24,6 @@ export default async function MovieDetails({ params }: PageProps) {
   const data = await getCompleteMovieDetails(Number(movieId));
   const relatedFilms = await getMoviesByCategory(MovieCategoryEnum.Popular);
 
-  console.log(data);
-
   return (
     <main className="flex flex-col gap-[32px]">
       <HeroSSR movieId={Number(movieId)} />
