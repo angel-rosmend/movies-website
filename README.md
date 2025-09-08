@@ -2,7 +2,7 @@
 
 A modern, responsive movie browsing application built with [Next.js](https://nextjs.org/) and powered by the [TMDB API](https://www.themoviedb.org/documentation/api). Explore trending movies, search by title, view details, and more!
 
-![Screenshot](./public/screenshot.png) <!-- Add a real screenshot if available -->
+
 
 ## 🚀 Features
 
@@ -50,4 +50,8 @@ npm run dev
 npm run dev:storybook
 ```
 
+<img width="1920" height="3126" alt="screencapture-localhost-3000-2025-09-08-15_03_56" src="https://github.com/user-attachments/assets/bf5cee06-40c2-4106-ab25-fe6ef03ffe6d" />
+
+
+<img width="1920" height="2662" alt="screencapture-localhost-3000-238-2025-09-08-15_04_51" src="https://github.com/user-attachments/assets/46a9b504-fe65-4b0c-8ca9-dbba529eb89e" />
 
