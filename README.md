@@ -1,6 +1,6 @@
 # 🎬 Next.js TMDB Movie App
 
-A modern, responsive movie browsing application built with [Next.js](https://nextjs.org/) and powered by the [TMDB API](https://www.themoviedb.org/documentation/api), inspired by [Figma design](https://www.figma.com/design/gZgOnWPpjlfVFp6G8KX5Sq/OTT-Dark-Theme-Website-UI-Design-Template-for-Media-Streaming--Movies-and-TV---FREE-Editable----Community-?node-id=272-1915&m=dev). Explore trending movies, search by title, view details, and more!
+A modern, responsive movie browsing application built with [Next.js](https://nextjs.org/) and powered by the [TMDB API](https://www.themoviedb.org/documentation/api), inspired by [Figma design](https://www.figma.com/design/gZgOnWPpjlfVFp6G8KX5Sq/OTT-Dark-Theme-Website-UI-Design-Template-for-Media-Streaming--Movies-and-TV---FREE-Editable----Community-?node-id=272-1915&m=dev). Explore trending movies, view details, and more!
 
 
 
