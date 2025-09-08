@@ -16,7 +16,7 @@ export function NavItem(props: NavItemProps) {
   return (
     <Link href={props.href}>
       <Box
-        className={cx("px-4 rounded-[10px] py-3 bg-transparent", {
+        className={cx("px-4 rounded-[10px] group py-3 transition-all ease-in bg-transparent hover:bg-black-10", {
           "!bg-black-10": active,
         })}
         role="menuitem"
@@ -24,7 +24,7 @@ export function NavItem(props: NavItemProps) {
         <TextButton
           
           className={cx({
-            "text-grey-75": !active,
+            "text-grey-75 group-hover:text-white group-hover:font-medium": !active,
             "text-white font-medium": active,
           })}
           size="s"
