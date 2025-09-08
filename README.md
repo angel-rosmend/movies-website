@@ -32,3 +32,22 @@ cd movies-website
 ```bash
 npm install
 ```
+
+## Add Enviroment Variables
+```bash
+NEXT_PUBLIC_TMDB_BASE_URL=""
+NEXT_PUBLIC_TMDB_IMAGE_URL="
+TMDB_SECRET_TOKEN=""
+TMDB_SECRET_KEY=""
+```
+
+## Run Project
+```bash
+npm run dev
+```
+
+```bash
+npm run dev:storybook
+```
+
+
