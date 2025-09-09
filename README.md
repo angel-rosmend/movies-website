@@ -22,7 +22,7 @@ A modern, responsive movie browsing application built with [Next.js](https://nex
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/yourusername/nextjs-tmdb-app.git
+https://github.com/angel-rosmend/movies-website.git
 ```
 
 ```bash
